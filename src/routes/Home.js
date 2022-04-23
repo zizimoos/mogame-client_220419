@@ -7,7 +7,7 @@ function Home(props) {
       <h1>Home</h1>
       <p>This is the home page.</p>
       <Link to="/gameapp">
-        <div>Game</div>
+        <div>Game Start</div>
       </Link>
     </div>
   );

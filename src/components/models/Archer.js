@@ -13,7 +13,7 @@ export default function Model({ action }) {
   const previousAction = usePrevious(action);
 
   useEffect(() => {
-    // console.log("actions", actions);
+    console.log("actions", actions);
     if (previousAction) {
       actions[previousAction].fadeOut(0.2);
       actions[previousAction].stop();

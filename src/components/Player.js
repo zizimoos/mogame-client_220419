@@ -33,7 +33,7 @@ function Player(props) {
         playerMove.current.position.x = playerMove.current.position.x -= 0.6;
         playerMove.current.rotation.y = playerMove.current.rotation.y =
           -Math.PI / 2;
-        setAction("Run");
+        setAction("running");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
@@ -44,7 +44,7 @@ function Player(props) {
         playerMove.current.position.x = playerMove.current.position.x += 0.6;
         playerMove.current.rotation.y = playerMove.current.rotation.y =
           Math.PI / 2;
-        setAction("Run");
+        setAction("running");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
@@ -55,7 +55,7 @@ function Player(props) {
         playerMove.current.position.z = playerMove.current.position.z -= 0.6;
         playerMove.current.rotation.y = playerMove.current.rotation.y =
           -Math.PI;
-        setAction("Run");
+        setAction("running");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
@@ -65,7 +65,7 @@ function Player(props) {
       case 40:
         playerMove.current.position.z = playerMove.current.position.z += 0.6;
         playerMove.current.rotation.y = playerMove.current.rotation.y = 0;
-        setAction("Run");
+        setAction("running");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
