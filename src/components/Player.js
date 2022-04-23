@@ -30,10 +30,10 @@ function Player(props) {
   document.onkeydown = (e) => {
     switch (e.keyCode) {
       case 37:
-        playerMove.current.position.x = playerMove.current.position.x -= 0.6;
+        playerMove.current.position.x = playerMove.current.position.x -= 0.3;
         playerMove.current.rotation.y = playerMove.current.rotation.y =
           -Math.PI / 2;
-        setAction("running");
+        setAction("walking");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
@@ -41,10 +41,10 @@ function Player(props) {
         });
         break;
       case 39:
-        playerMove.current.position.x = playerMove.current.position.x += 0.6;
+        playerMove.current.position.x = playerMove.current.position.x += 0.3;
         playerMove.current.rotation.y = playerMove.current.rotation.y =
           Math.PI / 2;
-        setAction("running");
+        setAction("walking");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
@@ -52,10 +52,10 @@ function Player(props) {
         });
         break;
       case 38:
-        playerMove.current.position.z = playerMove.current.position.z -= 0.6;
+        playerMove.current.position.z = playerMove.current.position.z -= 0.3;
         playerMove.current.rotation.y = playerMove.current.rotation.y =
           -Math.PI;
-        setAction("running");
+        setAction("walking");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
@@ -63,9 +63,9 @@ function Player(props) {
         });
         break;
       case 40:
-        playerMove.current.position.z = playerMove.current.position.z += 0.6;
+        playerMove.current.position.z = playerMove.current.position.z += 0.3;
         playerMove.current.rotation.y = playerMove.current.rotation.y = 0;
-        setAction("running");
+        setAction("walking");
         setPosition({
           x: playerMove.current.position.x,
           y: playerMove.current.position.y,
