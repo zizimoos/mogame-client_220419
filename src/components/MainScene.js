@@ -12,6 +12,8 @@ import { angleToRadians } from "../utils/angle.js";
 
 import PlayGround from "./PlayGround";
 import Player from "./Player";
+import LowTree01 from "./models/LowTree_01";
+
 import { useFrame } from "@react-three/fiber";
 import { useRecoilValue } from "recoil";
 import { playerPosition } from "./atoms.js";
@@ -156,6 +158,13 @@ function MainScene(props) {
         <mesh position={[0, 3, 0]} castShadow ref={greenballRef}>
           <sphereGeometry attach="geometry" args={[0.3, 32, 32]} />
           <meshStandardMaterial attach="material" color="green" />
+        </mesh>
+        <mesh castShadow>
+          <LowTree01
+            scale={[0.8, 0.8, 0.8]}
+            rotation={[0, -Math.PI / 9, 0]}
+            position={[3, 0, 1]}
+          />
         </mesh>
         <mesh>
           <PlayGround />

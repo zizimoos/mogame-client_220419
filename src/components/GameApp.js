@@ -7,7 +7,7 @@ import MainScene from "./MainScene";
 
 const CanvasContainer = styled.div`
   width: 100vw;
-  height: 800px;
+  height: 100vh;
   background-color: teal;
 `;
 
