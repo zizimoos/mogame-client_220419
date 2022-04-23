@@ -12,7 +12,6 @@ import { angleToRadians } from "../utils/angle.js";
 
 import PlayGround from "./PlayGround";
 import Player from "./Player";
-import Skulll from "./models/Skulll";
 import { useFrame } from "@react-three/fiber";
 import { useRecoilValue } from "recoil";
 import { playerPosition } from "./atoms.js";
@@ -146,9 +145,6 @@ function MainScene(props) {
       </mesh>
 
       <group>
-        <mesh>
-          <Skulll position={[0, 2, -20]} scale={[20, 20, 20]}></Skulll>
-        </mesh>
         <mesh position={[0, 3, 0]} castShadow ref={ballRef}>
           <sphereGeometry attach="geometry" args={[0.3, 32, 32]} />
           <meshStandardMaterial attach="material" color="red" />
