@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
-// import { useFrame } from "@react-three/fiber";
+import { useFrame } from "@react-three/fiber";
 import { gsap } from "gsap";
 
 import {
@@ -14,7 +14,6 @@ import PlayGround from "./PlayGround";
 import Player from "./Player";
 import LowTree01 from "./models/LowTree_01";
 
-import { useFrame } from "@react-three/fiber";
 import { useRecoilValue } from "recoil";
 import { playerPosition } from "./atoms.js";
 
@@ -22,14 +21,12 @@ function MainScene(props) {
   const orbitControlsRef = useRef(null);
   const defaultCamera = useRef(null);
   const ballRef = useRef(null);
-  const tealballRef = useRef(null);
-  const greenballRef = useRef(null);
   const DlightRef = useRef(null);
 
   const position = useRecoilValue(playerPosition);
 
   useFrame((state) => {
-    // console.log("characterPosition", position);
+    console.log("characterPosition", position);
     defaultCamera.current.position.x = position.x;
     defaultCamera.current.position.y = position.y + 15;
     defaultCamera.current.position.z = position.z;
@@ -65,42 +62,6 @@ function MainScene(props) {
     }
   }, [ballRef.current?.position]);
 
-  useEffect(() => {
-    if (!!tealballRef.current) {
-      console.log(ballRef.current);
-      gsap.fromTo(
-        tealballRef.current.position,
-        { x: 5, y: -2, z: 0 },
-        {
-          x: 5,
-          y: 8,
-          z: 0,
-          duration: 4,
-          ease: "power1.inOut",
-          repeat: -1,
-        }
-      );
-    }
-  }, [tealballRef.current?.position]);
-
-  useEffect(() => {
-    if (!!greenballRef.current) {
-      console.log(ballRef.current);
-      gsap.fromTo(
-        greenballRef.current.position,
-        { x: -3, y: -2, z: 3 },
-        {
-          x: -3,
-          y: 8,
-          z: 3,
-          duration: 6,
-          ease: "power1.inOut",
-          repeat: -1,
-        }
-      );
-    }
-  }, [greenballRef.current?.position]);
-
   return (
     <>
       <group>
@@ -118,7 +79,6 @@ function MainScene(props) {
           maxPolarAngle={Math.PI / 2 - 0.5}
         />
       </group>
-
       <group>
         <ambientLight args={["#ffffff", 0.8]} />
         <directionalLight
@@ -141,7 +101,6 @@ function MainScene(props) {
           castShadow
         />
       </group>
-
       <mesh>
         <Player />
       </mesh>
@@ -151,26 +110,18 @@ function MainScene(props) {
           <sphereGeometry attach="geometry" args={[0.3, 32, 32]} />
           <meshStandardMaterial attach="material" color="red" />
         </mesh>
-        <mesh position={[0, 3, 0]} castShadow ref={tealballRef}>
-          <sphereGeometry attach="geometry" args={[0.3, 32, 32]} />
-          <meshStandardMaterial attach="material" color="dodgerblue" />
-        </mesh>
-        <mesh position={[0, 3, 0]} castShadow ref={greenballRef}>
-          <sphereGeometry attach="geometry" args={[0.3, 32, 32]} />
-          <meshStandardMaterial attach="material" color="green" />
-        </mesh>
+
         <mesh castShadow>
           <LowTree01
             scale={[0.8, 0.8, 0.8]}
             rotation={[0, -Math.PI / 9, 0]}
-            position={[3, 0, 1]}
+            position={[3, 0, -10]}
           />
         </mesh>
         <mesh>
           <PlayGround />
         </mesh>
       </group>
-
       <Environment background>
         <mesh scale={100}>
           <sphereGeometry args={[50, 32, 32]} />
